@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard - AI Resume Analyzer</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+
+            margin: 0;
+
+            font-family: Arial, sans-serif;
+
+            background: #f4f7fb;
+
+            color: #1f2937;
+        }
+
+        .navbar {
+
+            background: #111827;
+
+            color: white;
+
+            padding: 18px 50px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+        }
+
+        .logo {
+
+            font-size: 22px;
+
+            font-weight: bold;
+        }
+
+        .logout {
+
+            color: white;
+
+            text-decoration: none;
+
+            background: #dc2626;
+
+            padding: 9px 16px;
+
+            border-radius: 7px;
+        }
+
+        .container {
+
+            max-width: 1100px;
+
+            width: 92%;
+
+            margin: 50px auto;
+        }
+
+        .welcome {
+
+            background: white;
+
+            padding: 35px;
+
+            border-radius: 15px;
+
+            margin-bottom: 25px;
+
+            box-shadow:
+                0 5px 20px
+                rgba(0,0,0,0.06);
+        }
+
+        .welcome h1 {
+
+            margin-top: 0;
+        }
+
+        .cards {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(280px, 1fr));
+
+            gap: 20px;
+        }
+
+        .card {
+
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 15px;
+
+            box-shadow:
+                0 5px 20px
+                rgba(0,0,0,0.06);
+        }
+
+        .card h2 {
+
+            margin-top: 0;
+        }
+
+        .button {
+
+            display: inline-block;
+
+            background: #2563eb;
+
+            color: white;
+
+            text-decoration: none;
+
+            padding: 12px 20px;
+
+            border-radius: 8px;
+
+            margin-top: 10px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <div class="logo">
+
+            AI Resume Analyzer
+
+        </div>
+
+        <a
+            href="/logout"
+            class="logout"
+        >
+
+            Logout
+
+        </a>
+
+    </nav>
+
+
+    <div class="container">
+
+        <div class="welcome">
+
+            <h1>
+
+                Welcome, {{ name }}! 👋
+
+            </h1>
+
+            <p>
+
+                Email:
+                <strong>{{ email }}</strong>
+
+            </p>
+
+            <p>
+
+                Welcome to your AI Resume Analyzer dashboard.
+
+            </p>
+
+        </div>
+
+
+        <div class="cards">
+
+
+            <div class="card">
+
+                <h2>
+                    📄 Resume Analyzer
+                </h2>
+
+                <p>
+
+                    Upload your resume and analyze
+                    its ATS compatibility.
+
+                </p>
+
+                <a
+                    href="/upload"
+                    class="button"
+                >
+
+                    Upload Resume
+
+                </a>
+
+            </div>
+
+
+            <div class="card">
+
+                <h2>
+                    📊 ATS Report
+                </h2>
+
+                <p>
+
+                    Check your ATS score, mistakes,
+                    suggestions and improvements.
+
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h2>
+                    🎯 Job Matching
+                </h2>
+
+                <p>
+
+                    Match your resume with a job
+                    description.
+
+                </p>
+
+                <p>
+
+                    Coming next...
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

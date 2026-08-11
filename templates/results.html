@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>ATS Resume Report</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+
+            margin: 0;
+
+            font-family: Arial, sans-serif;
+
+            background: #f4f7fb;
+
+            color: #1f2937;
+        }
+
+        .navbar {
+
+            background: #111827;
+
+            color: white;
+
+            padding: 18px 50px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+        }
+
+        .logo {
+
+            font-size: 22px;
+
+            font-weight: bold;
+        }
+
+        .container {
+
+            max-width: 1100px;
+
+            width: 92%;
+
+            margin: 40px auto;
+        }
+
+        .score-card {
+
+            background: white;
+
+            padding: 35px;
+
+            border-radius: 18px;
+
+            text-align: center;
+
+            margin-bottom: 25px;
+
+            box-shadow:
+                0 5px 20px
+                rgba(0,0,0,0.07);
+        }
+
+        .score {
+
+            font-size: 70px;
+
+            font-weight: bold;
+
+            color: #2563eb;
+        }
+
+        .message {
+
+            font-size: 20px;
+
+            font-weight: bold;
+        }
+
+        .grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(300px, 1fr));
+
+            gap: 20px;
+        }
+
+        .card {
+
+            background: white;
+
+            padding: 25px;
+
+            border-radius: 15px;
+
+            box-shadow:
+                0 5px 20px
+                rgba(0,0,0,0.06);
+        }
+
+        .card h2 {
+
+            margin-top: 0;
+        }
+
+        li {
+
+            margin-bottom: 12px;
+
+            line-height: 1.5;
+        }
+
+        .button {
+
+            display: inline-block;
+
+            margin-top: 30px;
+
+            background: #2563eb;
+
+            color: white;
+
+            text-decoration: none;
+
+            padding: 13px 25px;
+
+            border-radius: 8px;
+        }
+
+        .skills {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 8px;
+        }
+
+        .skill {
+
+            background: #dbeafe;
+
+            color: #1d4ed8;
+
+            padding: 7px 12px;
+
+            border-radius: 20px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+    <nav class="navbar">
+
+        <div class="logo">
+
+            AI Resume Analyzer
+
+        </div>
+
+        <div>
+
+            {{ filename }}
+
+        </div>
+
+    </nav>
+
+
+    <div class="container">
+
+
+        <!-- ATS SCORE -->
+
+        <div class="score-card">
+
+            <h1>
+
+                Your ATS Score
+
+            </h1>
+
+            <div class="score">
+
+                {{ score }}/100
+
+            </div>
+
+            <div class="message">
+
+                {{ score_message }}
+
+            </div>
+
+        </div>
+
+
+        <div class="grid">
+
+
+            <!-- STRENGTHS -->
+
+            <div class="card">
+
+                <h2>
+
+                    ✅ Strengths
+
+                </h2>
+
+                <ul>
+
+                    {% for item in strengths %}
+
+                        <li>
+
+                            {{ item }}
+
+                        </li>
+
+                    {% endfor %}
+
+                </ul>
+
+            </div>
+
+
+            <!-- MISTAKES -->
+
+            <div class="card">
+
+                <h2>
+
+                    ❌ Mistakes
+
+                </h2>
+
+                <ul>
+
+                    {% for item in mistakes %}
+
+                        <li>
+
+                            {{ item }}
+
+                        </li>
+
+                    {% endfor %}
+
+                </ul>
+
+            </div>
+
+
+            <!-- SUGGESTIONS -->
+
+            <div class="card">
+
+                <h2>
+
+                    💡 Suggestions
+
+                </h2>
+
+                <ul>
+
+                    {% for item in suggestions %}
+
+                        <li>
+
+                            {{ item }}
+
+                        </li>
+
+                    {% endfor %}
+
+                </ul>
+
+            </div>
+
+
+            <!-- IMPLEMENTATIONS -->
+
+            <div class="card">
+
+                <h2>
+
+                    🛠️ How to Implement
+
+                </h2>
+
+                <ul>
+
+                    {% for item in implementations %}
+
+                        <li>
+
+                            {{ item }}
+
+                        </li>
+
+                    {% endfor %}
+
+                </ul>
+
+            </div>
+
+
+            <!-- SCORE IMPROVEMENT -->
+
+            <div class="card">
+
+                <h2>
+
+                    📈 How to Increase ATS Score
+
+                </h2>
+
+                <ul>
+
+                    {% for item in improvement_tips %}
+
+                        <li>
+
+                            {{ item }}
+
+                        </li>
+
+                    {% endfor %}
+
+                </ul>
+
+            </div>
+
+
+            <!-- SKILLS -->
+
+            <div class="card">
+
+                <h2>
+
+                    💻 Detected Skills
+
+                </h2>
+
+
+                <div class="skills">
+
+                    {% for skill in detected_skills %}
+
+                        <span class="skill">
+
+                            {{ skill }}
+
+                        </span>
+
+                    {% endfor %}
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <a
+            href="/upload"
+            class="button"
+        >
+
+            Analyze Another Resume
+
+        </a>
+
+
+        <a
+            href="/dashboard"
+            class="button"
+        >
+
+            Dashboard
+
+        </a>
+
+
+    </div>
+
+</body>
+
+</html>
